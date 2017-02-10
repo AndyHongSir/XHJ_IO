@@ -1,0 +1,478 @@
+import "scbase.proto";
+import "XML.proto";
+import "StoC.proto";
+import "MessageHeader.proto";
+
+option optimize_for = LITE_RUNTIME; 
+
+package jynetwork.proto;
+
+  
+//用户登录信息
+message SCMessageLoginAuth
+{
+	required eLoginResult 	result   = 1;
+	optional int32	acc_id   = 2;
+	optional uint32 session_key = 3;	
+	optional uint32 port      = 4;
+	optional string gate_ip    = 5;
+	optional string user_name    = 6;
+	optional string sdk_id    = 7;
+	optional uint32 is_need_disconnect = 8; //1:退到主页，2：断连接，3：正常提示
+	optional uint32 lang_id = 9;
+}
+
+message SCMessageGateAuth
+{
+	required eLoginResult result   = 1;
+	optional uint32 acc_id   = 2;	
+}
+
+message sPlaneEquipStats 	{			
+	optional uint64 uid = 1;		//id
+	optional uint32 equipid = 2;	//sEquipStats的uid
+	optional uint32 level = 3;
+	optional uint32 intensify = 4;		
+	optional uint32 exp = 5;
+	optional uint32 starlv = 6;	
+	optional ePersonalOpertionType oper = 7;		//1新加，2更新，3删除	
+};
+
+// 角色详细信息 需要修改暂定这些
+message SCUserDetailInfo
+{
+	optional uint32 acc_id = 1;		
+	optional uint32 isnewchar = 2;		//是否新角色 1是新角色，新角色后面的都不发，需要创建
+	optional uint32 isfulldata = 3;		//1表示是整包，0表示是更新内容
+
+	optional string sname = 4;			//角色名
+	repeated uint32	equip_id = 5;		//外观id（暂定10个位置）
+	optional uint32 team_lv = 6;		//战队等级
+	optional uint32 team_exp = 7;		//战队经验
+	optional uint32 cup_score_total = 8;		//总杯赛积分
+	optional uint32 cup_scor = 9;		//当前杯赛积分
+	optional uint32 league_score_total = 10;		//总联赛积分
+	optional uint32 league_scor = 11;		//当前联赛积分
+	optional uint32 win_total = 12;		//总胜场
+	optional uint32 lost_total = 13;		//总负场
+
+	repeated sPlaneEquipStats equip = 14;	//装备信息
+
+	optional uint64 stat_num = 15;
+
+	//旧数据
+	optional uint32 guildid = 906;		//工会	
+	optional uint32 viplevel= 907;		//vip等级
+	optional uint32 vipexp= 908;		//vip经验
+	optional int32 money= 909;		//当前金币
+	optional int32 diamonds= 910;		//当前钻石数量
+	optional uint32 charslot = 911;		//已选择的角色的数组chars下标
+	optional uint32 guide = 912;		//引导步骤
+	
+	
+	repeated sCharactorInit	chars = 913;	//角色id = 表sCharactorInit中的id
+	repeated sPersonCardStats cards = 914;	//帐号的伙伴信息
+	
+	repeated sPersonItemStats item = 916;	//帐号的包裹信息
+	repeated sCastleInfo castles = 917;//关卡信息
+	optional uint32 staminanow = 918;//体力
+	optional uint32 staminamax = 919;//体力最大值
+	repeated sPersonSkillStats skills = 920;	//帐号的技能信息
+	repeated sPersonTaskStats tasks = 921;	//帐号的任务信息
+
+	optional uint32 buy_stamina = 922;		//已经购买体力次数
+	optional uint32 buy_gold = 923;		//已经购买金币次数
+	repeated uint32 refresh_shop = 924;		//已经刷新商店次数(现在有4种商店)
+	repeated sCastleInfo last_castle = 935;//最后关卡信息
+	optional uint32 show_new_map = 936;// 是否需要显示新关卡
+
+	optional uint32 week_login = 937;		// 周连签天数
+	optional uint32 week_day_login = 938;	// 周签今日是否签过 0没签 1签过
+	repeated sPersonItemStats week_item= 939;// 周连签奖励
+	optional uint32 oper_index = 940;			// 操作数
+	repeated uint32 reset_free = 941;			// 剩余次数 0：金币抽奖免费次数 1：钻石抽奖免费次数
+	repeated uint32 reset_time = 943;			// 重置时间 0：金币抽奖重置时间 1：钻石抽奖重置时间
+	optional uint32 endless_wave = 944;		// 无尽的波数
+	optional uint32 corps_guide = 945;		// 工会引导 changeguide 999
+
+	optional uint32 total_charge = 946;
+	optional uint32 day_charge = 947;
+	optional uint32 month_card = 948;
+	optional uint32 forever_card = 949;
+	optional uint32 sys_setting = 950;
+	optional uint32 today_roulette = 951; //今日钻石单抽
+	optional uint32 today_ten_roulette = 952; //今日10连钻石抽
+	optional uint32 today_small_charge = 953;//今日小额充值次数
+	optional uint32 crystal = 954;// 龙晶
+	optional uint32 double_open = 955;// 邀请开关
+	optional uint32 endless_check_wave = 956;
+	optional uint32 endless_check_score = 957;
+	optional uint32 check_point = 958;		//引导步骤2
+
+	optional uint32 is_cheat = 999;		// 是否作弊 1是作弊
+	optional uint32 server_local_time = 10100; 
+	optional string create_time = 10101;		//创角时间
+	optional string login_time = 10102;		//最后保存时间
+}
+
+message SCMessageOperationResult
+{	
+	required eOpertionResult result   = 1;
+	required eOpertionType operatin   = 2;
+	optional uint32 acc_id = 3;		
+	optional uint32	bonus =4;	
+	optional uint32	next_item =5;// 之前的物品id
+	optional uint32 oper_value = 6;
+	repeated sSimpleItem simple_item = 7;
+	optional uint64 oper_value2 = 8;
+}
+
+message SCMessageShopItem
+{
+	optional uint32 shop_type = 1;
+	repeated sSimpleItem item =2;
+}
+
+message SCMessageBattleReward
+{
+	optional uint32 map_id = 1;
+	optional uint32 exp = 2;		
+	repeated sPersonEquipStats equip =3;
+	repeated sPersonItemStats item =4;
+	optional uint32 difficult = 5; //精英难度
+	optional uint32 battle_score = 6;
+	optional uint32 battle_money = 7;
+	optional uint32 battle_star = 8;
+	optional uint32 old_level = 9;
+	optional uint32 old_exp = 10;
+	optional uint32 card_exp = 11;	
+	optional eOpertionResult result   = 12;	
+	optional uint32 hit_score = 13;
+	optional uint32 time_score = 14;
+	optional uint32 catlog = 15;
+	optional uint32 endless_wave = 16;
+
+	repeated uint32 double_damage_score =17;
+	repeated uint32 double_kill_score =18;
+	repeated uint32 double_boss_score =19;
+
+	repeated sPersonItemStats mvp_item =20;
+
+	optional uint32 boss_single = 21;
+	optional uint32 boss_total = 22;
+	optional uint32 boss_rank = 23;
+
+	optional uint32 wait_player_reward = 24;
+	optional int32 arena_score = 25;
+	optional uint32 arena_result = 26; //0平局，1P胜利，2p胜利
+	optional uint32 arena_continue_win = 27; //连胜次数
+}
+
+message SCMessageBattleSweepReward
+{
+	message RewardInfo 
+	{
+		repeated sPersonEquipStats equip =1;
+		repeated sPersonItemStats item =2;
+	}
+	optional uint32 map_id = 1;
+	optional uint32 difficult = 2; //精英难度
+	optional uint32 exp = 3;	
+	optional uint32 battle_money = 4;	
+	
+	repeated RewardInfo reward =5;
+	
+	optional uint32 battle_star = 6;
+	optional uint32 old_level = 7;
+	optional uint32 old_exp = 8;
+	optional uint32 card_exp = 9;	
+	optional eOpertionResult result   = 10;	
+	optional uint32 catlog = 11;
+}
+
+message SCMessageBattleRewardEnd
+{
+	optional uint32 map_id = 1;
+	optional uint32 difficult = 2; // 废弃
+	optional uint32 catlog = 3;
+}
+
+message sPlayerSave {	//临时数据
+	optional SCUserDetailInfo udi = 1;
+	optional sCastleComplete cc = 2;				//地图进展和信息
+	repeated sPersonEquipStats otherequip = 3;	//临时的其他人物的装备
+	optional uint32 version = 4;						//版本号
+	optional uint32 itemdbid = 5;						//临时使用的道具dbid
+	optional uint32 equipdbid = 6;					//临时使用的装备dbid
+	repeated sPersonEquipStats dropquip = 7;	//掉落的临时装备
+	repeated sPersonItemStats dropitem = 8;	//掉落的临时物品
+};
+
+message SCOpponentDetailInfo
+{
+	optional uint32 acc_id = 1;		
+	optional bytes sname = 2;		//玩家名字
+	optional eCampBelong campbelong= 3;	//阵营归属
+	optional uint32 guildid = 4;		//工会	
+	optional uint32 viplevel= 5;		//vip等级
+
+	optional uint32 charslot = 6;		//已选择的角色id	
+	
+	repeated sCharactorInit	chars = 7;	//角色id = 表sCharactorInit中的id
+	repeated sPersonCardStats cards = 8;	//帐号的伙伴信息
+	repeated sPersonEquipStats equip = 9;	//帐号的装备信息
+	repeated sPersonSkillStats skills = 10;	//帐号的技能信息
+}
+
+message SCQueryDetailInfo
+{
+	optional uint32 acc_id = 1;		
+	optional bytes sname = 2;		//玩家名字
+	optional eCampBelong campbelong= 3;	//阵营归属
+	optional uint32 guildid = 4;		//工会	
+	optional uint32 viplevel= 5;		//vip等级
+
+	optional uint32 charslot = 6;		//已选择的角色id	
+	
+	repeated sCharactorInit	chars = 7;	//角色id = 表sCharactorInit中的id
+	repeated sPersonCardStats cards = 8;	//帐号的伙伴信息
+	repeated sPersonEquipStats equip = 9;	//帐号的装备信息
+	repeated sPersonSkillStats skills = 10;	//帐号的技能信息
+
+	
+	optional uint32 query_type = 11;		
+	optional uint32 query_job = 12;		
+	optional uint32 my_acc_id = 13;
+
+	optional uint32 char_lv = 14;
+	optional uint32 char_power = 15;
+	optional uint32 position =16; // 99是申请列表, 1会长,2副会长，3老会员，4新人
+	optional uint32 cost_stamina = 17;
+
+	optional uint32 char_power_1 = 18;
+	optional uint32 char_power_2 = 19;
+	optional uint32 char_power_3 = 20;
+
+	optional uint32 local_name = 21;  //本地语言包名字
+
+	optional uint32 max_hard_stage = 22;
+}
+
+message SCMessagePong
+{
+	optional uint32 timestamp = 1;
+}
+
+message SCMessageBattlePrepare
+{
+	optional uint32 map_id = 1;
+	optional uint32 rand_num = 2;		
+	repeated sPersonEquipStats equip =3;
+	repeated sPersonItemStats item =4;
+	optional uint32 difficult = 5; // 废弃
+	optional eOpertionResult result   = 6;	
+	optional uint32 dropmiddle = 7;
+	optional uint32 dropgoblin = 8;
+	optional uint32 total_money = 9;
+	optional uint32 catlog = 10;
+	optional uint32 start_pos = 11; // 乱入起始点，1开始，2中间，3boss 废弃
+	repeated SCQueryDetailInfo friend_detail = 12;
+	repeated SCQueryDetailInfo oppo_detail = 13;
+	optional int32 posx = 14;// 乱入用
+	optional int32 posy = 15;// 乱入用
+	optional uint32 group = 16;// 乱入用
+	optional uint32 endless_money = 17;
+	optional sGameStats arena_stats =18;
+	optional uint32 monster_lv = 19;
+}
+
+message SysNotice
+{
+	optional bytes sname = 1;		//玩家名字
+	optional int32 lang_id = 2;		//语言包ID
+	optional int32 value1 = 3;
+	optional int32 value2 = 4;
+	optional bytes value3 = 5;
+}
+
+message SCMessageSysNotice
+{
+	repeated SysNotice equip =1;
+}
+
+message SysMail
+{
+	optional int64 mail_id = 1;	
+	optional bytes mail_title = 2;		
+	optional bytes mail_content = 3;			
+	optional uint32 mail_item = 4;
+	optional int32 has_read = 5;
+	optional int32 mail_type = 6;		//1普通，2工会战神，3战役，4工会boss
+	repeated sSimpleItem reward_item = 7;	
+	optional ePersonalOpertionType oper = 8;		//1新加，2更新，3删除
+	optional int32 map_id = 9;
+}
+
+message SCMessageMail
+{
+	repeated SysMail mail = 1;
+	optional int32 is_last_one = 2;
+	optional int32 has_new_mail = 3;
+	optional int32 new_mail_type = 4;
+}
+
+
+message SCMessageRankList
+{
+	message RankInfo 
+	{
+		optional uint32 char_id = 1;
+		optional bytes name = 2;
+		optional uint32 rank = 3;
+		optional uint32 level = 4;
+		optional uint32 sex = 5;
+		optional uint32 job = 6;
+		optional uint32 rank_value = 7;
+		optional uint32 corps_id = 8;
+		optional uint64 rank_value2 = 9;//时间
+		optional uint64 rank_value3 = 10;
+		optional uint64 rank_value4 = 11;
+		optional bytes rank_value5 = 12; 
+	}
+	repeated RankInfo rank_info = 1;
+	optional bytes rank_time = 2;
+	optional uint32 my_rank = 3;
+	optional uint32 page = 4;
+	optional uint32 rank_type = 5; 
+	// 1战力排行，21等级排行,20装备排行，31无尽排行(32短)，41工会排行，51工会战神排行，71战役,81竞技场(82短),91精英，101战役，111定向双打
+	// 61世界boss排行,62世界boss战斗中排行,不在排行榜界面，使用的短数据
+	optional float boss_hp = 6;
+	optional uint32 remain_boss_time = 7;
+
+	optional uint64 arena_score = 8;
+	optional uint64 arena_rank = 9;
+	optional uint64 arena_rank_old = 10;
+	optional uint64 arena_cd = 11;
+}
+
+message SCMessageBattleCheck
+{
+	optional uint32 check_id = 1;	
+}
+
+message SCMessageCorpsOper
+{
+	required eCorpsOpertionType oper = 1;
+	optional uint32 corps_id = 2;
+	optional uint32 char_id = 3;
+	optional bytes name = 4;
+	optional eOpertionResult result = 5;
+}
+
+message CorpsInfo
+{
+	optional uint32 corps_id = 1;	
+	optional bytes corps_name = 2;
+	optional uint32 corps_lv = 3;	
+	optional uint32 corps_exp = 4;	
+	optional bytes corps_intro = 5;	
+	optional uint32 corps_power= 6;
+	optional uint32 corps_member_count = 7;
+	optional uint32 corps_member_max = 8;
+	optional uint32 corps_join = 9; //0不需要审批，1需要审批
+	optional uint32 is_apply = 10; // 0 未申请，非0已经申请
+	optional uint32 corps_rank = 11; //  999表示100名以外，其他表示名次
+	optional uint32 hunter_point = 12;
+}
+
+message SCMessageCorpsInfo
+{
+	optional CorpsInfo info = 1;
+	repeated SCQueryDetailInfo char_info =2;
+	optional uint32 my_acc_id = 3;	
+}
+
+message CorpsBossInfo
+{
+	optional uint32 map_id = 1;	
+	optional uint32 attack_id = 2;
+	repeated CorpsBossPlayerInfo player_info = 3;	
+	optional uint32 is_open = 4 ; // 0关闭，1开启
+	optional uint64 hp = 5 ; //
+}
+
+message CorpsBossPlayerInfo
+{
+	optional uint32 player_id = 1;	
+	optional bytes player_name = 2;
+	optional uint32 score = 3;	
+	optional uint32 rank = 4;	
+}
+
+message SCMessageCorpsBossInfo
+{
+	repeated CorpsBossInfo info = 1;
+	optional uint32 my_acc_id = 3;	
+}
+
+message SCMessageCorpsList
+{
+	repeated CorpsInfo corps_info = 1;
+	optional uint32 rank = 2;
+	optional uint32 my_acc_id = 3;	
+	
+	repeated uint32	apply_list =4;
+}
+
+message MessagePKOper
+{
+	optional ePKOperationOper oper = 1;	
+	optional uint32 skill_id = 2;	
+	optional uint32 hp = 3;	
+	optional uint32 posx = 4;	
+	optional uint32 posy = 5;	
+}
+
+message SCMessagePKOperResult
+{
+	optional ePKOperationOper oper = 1;	
+	optional eOpertionResult result = 2;	
+}
+
+message SCMessageNetBattlePrepare
+{
+	optional uint32 map_id = 1;
+	repeated SCQueryDetailInfo friend_detail = 2;
+	optional fixed32 start_time = 3;
+	optional uint32 total_money = 4;
+	optional eOpertionResult result = 5;	
+	optional sGameStats arena_stats = 6;
+	optional uint32 monster_lv = 7;
+	optional uint32 difficult = 8;
+	optional uint32 is_ai = 9; //1为真
+}
+
+message SCMessageNetBattleOper
+{
+	repeated NetBattleOper opers = 1;
+	optional uint32 battle_time = 2;	//根据开始时间相对的毫秒数,转发不需要,仅服务器使用
+}
+
+message SCMessageFriendList
+{
+	message FriendInfo 
+	{
+		optional uint32 acc_id = 1;
+		optional bytes name = 2;
+		optional uint32 level = 3;
+		optional uint32 job = 4;
+		optional uint32 last_map = 5;
+		optional uint32 state = 6;
+		optional uint32 friend_type = 7;
+		optional uint32 fight_power = 8;
+		optional uint32 last_normal_map = 9;
+	}
+	repeated FriendInfo friend_info = 1;
+	repeated FriendInfo corps_info = 2;
+	optional uint32 from_acc_id = 3;	
+}

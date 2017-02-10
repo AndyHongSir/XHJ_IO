@@ -1,0 +1,36 @@
+dependencies: \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/cocos/navmesh/CCNavMeshUtils.cpp \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/navmesh/CCNavMeshUtils.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/base/ccConfig.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/platform/CCPlatformConfig.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/platform/CCPlatformMacros.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/platform/CCPlatformDefine.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/platform/mac/CCPlatformDefine-mac.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/math/CCMath.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/math/Vec2.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/math/CCMathBase.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/math/Vec2.inl \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/math/Vec3.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/math/Vec3.inl \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/math/Mat4.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/base/ccMacros.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/base/CCConsole.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/base/CCRef.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/platform/CCStdC.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/platform/mac/CCStdC-mac.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/base/ccRandom.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/math/Vec4.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/math/Vec4.inl \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/math/Mat4.inl \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/math/Quaternion.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../cocos/math/Quaternion.inl \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/recast/Detour/DetourCommon.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/recast/Detour/DetourMath.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/recast/Detour/DetourNavMesh.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/recast/Detour/DetourAlloc.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/recast/Detour/DetourStatus.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/recast/Detour/DetourNavMeshQuery.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/recast/DetourTileCache/DetourTileCache.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/recast/DetourTileCache/DetourTileCacheBuilder.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/recast/Detour/DetourNavMeshBuilder.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/recast/fastlz/fastlz.h

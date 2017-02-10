@@ -1,0 +1,20 @@
+dependencies: \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/external/bullet/BulletMultiThreaded/btGpu3DGridBroadphase.cpp \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/bullet/BulletMultiThreaded/btGpuDefines.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/bullet/BulletMultiThreaded/btGpuUtilsSharedDefs.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/bullet/BulletMultiThreaded/btGpuUtilsSharedCode.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btAlignedAllocator.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btScalar.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btQuickprof.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/bullet/BulletCollision//BroadphaseCollision/btOverlappingPairCache.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/bullet/BulletCollision//BroadphaseCollision/btBroadphaseInterface.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/bullet/BulletCollision//BroadphaseCollision/btBroadphaseProxy.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btVector3.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btMinMax.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/bullet/BulletCollision//BroadphaseCollision/btOverlappingPairCallback.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btAlignedObjectArray.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/external/bullet/BulletMultiThreaded/btGpu3DGridBroadphaseSharedDefs.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/external/bullet/BulletMultiThreaded/btGpu3DGridBroadphaseSharedTypes.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/external/bullet/BulletMultiThreaded/btGpu3DGridBroadphase.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/build/../external/bullet/BulletCollision//BroadphaseCollision/btSimpleBroadphase.h \
+  /Users/andyhong/qianji/io/QJ_IO/frameworks/cocos2d-x/external/bullet/BulletMultiThreaded/btGpu3DGridBroadphaseSharedCode.h
